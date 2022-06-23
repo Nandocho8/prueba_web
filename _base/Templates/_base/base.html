@@ -29,13 +29,20 @@
             <li class="nav-item ">
               <a class="nav-link {% if request.path == '/' %} active {% endif %} " aria-current="page" href="{% url 'index' %}">Inicio</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link {% if request.path == '/noticias/' %} active {% endif %}" href="{% url 'noticias' %}">Noticias</a>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Noticias</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a href="{% url 'noticias' %}" class="dropdown-item ">Ver Noticias</a> <br>
+                <a href="{% url 'noticias_agrega' %}" class="dropdown-item ">Agregar Noticias</a>
+              </div>
             </li>
-            <li class="nav-item">
-              <a class="nav-link {% if request.path == '/juegos/' %} active {% endif %}" href="{% url 'juegos'%}">Juegos</a>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Juegos</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a href="{% url 'juegos' %}" class="dropdown-item ">Ver Juegos</a> <br>
+                <a href="{% url 'juegos_agrega' %}" class="dropdown-item ">Agregar Juegos</a>
+              </div>
             </li>
-            <li class="nav-item">
               {% comment %} <a class="nav-link {% if request.path == '/pokedex/' %} active {% endif %}" href="{% url 'pokedex'%}">Pokedex</a> {% endcomment %}
             </li>
             </li>

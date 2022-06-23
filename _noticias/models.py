@@ -9,7 +9,7 @@ class Noticias(models.Model):
     titulo = models.CharField('titulo', max_length=100)
     cuerpo = models.CharField(max_length=800)
     imagen = models.ImageField(upload_to='noticias', blank=True, null=True)
-    link = models.CharField('link', max_length=300, default='hola')
+    link = models.CharField('link', max_length=300, default='www.google.com')
 
     def __str__(self):
         return self.nombre

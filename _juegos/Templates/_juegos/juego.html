@@ -16,7 +16,7 @@
       style="margin: 0px 25px; width: 400px"
       >
         <div class="card-body " >
-          <a href="{{ j.link }}">
+          <a href="{{ j.link }}" target="_blank">
           <img src="{{ j.imagen.url }}" 
           alt="Galeria imagen" 
           class="card-img-top"
@@ -26,7 +26,7 @@
           <h3 class="text-center text-capitalize font-italic">
           {{ j.titulo | upper }}
           </h3>
-          <a href="{{n.link}}" target="_blank" class="btn btn-info ">
+          <a href="{{j.link}}" target="_blank" class="btn btn-info ">
             Lo quiero!
           </a> &nbsp;
           <a href="{% url 'juegos_modifica' j.id %}"  class="btn btn-primary ">
