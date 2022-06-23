@@ -16,11 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from . import views
-from .views import agregar_noticias, modificar_noticias
+from .views import agregar_noticias, modificar_noticias, eliminar_noticias
 
 urlpatterns = [
     path('', views.noticias, name='noticias'),
     path('agregar_noticias/', views.agregar_noticias, name='noticias_agrega'),
     path('editar_noticias/<id>/', views.modificar_noticias,
          name='noticias_modifica'),
+    path('eliminar_noticias/<id>/', views.eliminar_noticias,
+         name='noticias_elimina'),
 ]

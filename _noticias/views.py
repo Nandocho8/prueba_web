@@ -51,3 +51,9 @@ def modificar_noticias(request, id):
 
     else:
         return render(request, '_noticias/editar_noticias.html', data)
+
+
+def eliminar_noticias(request, id):
+    noticias = get_object_or_404(Noticias, id=id)
+    noticias.delete()
+    return redirect(to='noticias')
