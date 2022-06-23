@@ -6,3 +6,6 @@ class FormAgregarNoticia(forms.ModelForm):
     class Meta:
         model = Noticias
         fields = "__all__"
+        widgets = {
+            'cuerpo': forms.Textarea()
+        }

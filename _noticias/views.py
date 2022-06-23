@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Noticias
 from .forms import FormAgregarNoticia
 
@@ -15,27 +15,39 @@ def agregar_noticias(request):
     data = {
         'form': FormAgregarNoticia()
     }
-    print('getgetgetgetgetgetgetgetgetgetgetgetgetgetgetget\n\n\n\n\n\n\n')
 
-    print('POST POST POST POST POST POST POST \n\n\n\n\n ')
     if request.method == 'POST':
-        print('IF POST IF POST IF POST IF POST IF POST IF POST \n\n\n\n\n')
 
         formulario = FormAgregarNoticia(data=request.POST, files=request.FILES)
-        print('data data data data data data data data \n\n\n\n\n')
-        print('form instance form instance form instance form instance \n\n\n\n\n')
         if formulario.is_valid():
-            print('form valid form valid form valid form valid \n\n\n\n\n')
             formulario.save()
-            print('form save form save form save form save form save ')
             data['mensaje'] = 'NOTICIA AGREGADA CON EXITO'
             return redirect('/')
         else:
-            print('else if else if else if else if else if \n\n\n\n')
             data['form'] = formulario
             return render(request, '_noticias/agregar_noticias.html', data)
 
     else:
-        print('else else else else else else else \n\n\n\n')
         return render(request, '_noticias/agregar_noticias.html', data)
         # return redirect('juegos/')
+
+
+def modificar_noticias(request, id):
+    noticias = get_object_or_404(Noticias, id=id)
+    data = {
+        'form': FormAgregarNoticia(instance=noticias)
+    }
+    if request.method == 'POST':
+
+        formulario = FormAgregarNoticia(
+            data=request.POST, files=request.FILES, instance=noticias)
+        if formulario.is_valid():
+            formulario.save()
+            data['mensaje'] = 'NOTICIA MODIFICADA CON EXITO'
+            return redirect(to='noticias')
+        else:
+            data['form'] = formulario
+            return render(request, '_noticias/editar_noticias.html', data)
+
+    else:
+        return render(request, '_noticias/editar_noticias.html', data)

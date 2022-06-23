@@ -1,12 +1,13 @@
 {% extends "_base/base.html" %} {% load static %} {% block content %}
 
 <!-- noticia-->
-<div class='principal-body'>
-  <section class="container-fluid" id="noticias">
-    <div class="text-center pt-5">
+    <div class="text-center ">
       <h1>Noticias</h1>
     </div>
     
+<div class='principal-body'>
+  <section class="container-fluid" id="noticias">
+
     <div class="row" >
       <!--separador-->
       {% for n in news %}
@@ -15,23 +16,24 @@
         style="margin: 0px 25px; width: 400px"
       >
       
-        <div class="card-body">
+        <div class="card-body " >
           
             <img
           src="{{ n.imagen.url }}"
           class="card-img-top"
           alt="..."
+          style='height: 216.6px;'
         />
           <h5 class="card-title">{{n.titulo | upper}}</h5>
-          <p class="card-text">
+          <p class="card-text" >
             {{n.cuerpo | capfirst}}
           </p>
-          <a
-            href="https://justdancenow.com/"
-            target="_blank"
-            class="btn btn-primary"
-            >+</a
-          >
+          <a href="{{n.link}}" target="_blank" class="btn btn-info ">
+            + Info
+          </a> &nbsp;
+          <a href="{% url 'noticias_modifica' n.id%}" target="_blank" class="btn btn-primary ">
+            Modificar
+          </a>
         </div>
       </div>
 {% endfor %}
