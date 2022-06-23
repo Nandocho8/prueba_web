@@ -1,3 +1,11 @@
+alter session set "_oracle_script"=true;
+CREATE USER prograweb IDENTIFIED BY "prograweb"
+DEFAULT TABLESPACE USERS
+TEMPORARY TABLESPACE TEMP;
+ALTER USER prograweb QUOTA UNLIMITED ON USERS;
+GRANT CREATE SESSION TO prograweb ;
+GRANT RESOURCE TO prograweb ;
+ALTER USER prograweb DEFAULT ROLE RESOURCE;
 
 
 Insert into "_JUEGOS_JUEGOS" (NOMBRE,TITULO,TIPO,IMAGEN,LINK) values ('formite','Fortnite','D','juego/fortnite.jpg','https://www.epicgames.com/fortnite/es-ES/download');
