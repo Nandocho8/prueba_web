@@ -1,0 +1,31 @@
+{% extends "_base/base.html" %}  {% load crispy_forms_tags %}{% block content %}
+
+<div class='principal-body'>
+  <section class="container-fluid" id="noticias">
+  <div class="text-center pt-5">
+    <h1>Editar</h1>
+  </div>
+
+  <div class="row" >
+    <div class="card col-12 col-md-6 offset-md-3" >
+      <div class="card-body">
+        <form action="" method="POST" enctype='multipart/form-data'>
+          {% csrf_token %}
+          {{ form | crispy }}
+
+        <br>
+          <div class='d-flex justify-content-center'>
+          <input type="reset" value="Cancelar" class='btn btn-secondary'> &nbsp;
+          <input type="submit" value="Modificar" class='btn btn-primary'>
+        </div>
+        </form>
+
+
+      </div>  
+    </div>
+  </div>
+  </section>
+</div>
+{{ mensaje }}
+{% endblock %}
+

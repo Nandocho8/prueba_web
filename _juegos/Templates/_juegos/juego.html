@@ -1,53 +1,46 @@
 {% extends "_base/base.html" %} {% load static %} {% block content %}
 
 <!-- galeria-->
-<title>Galeria juegos</title>
-<section id="galeria" class="container">
-  <div class="text-center pt-5">
-    <h1>Galería</h1>
-    <p>Nuevos juegos</p>
-  </div>
-  <div class="row">
-    <div class="col-sm-12 col-md-6 col-lg-4">
-      <a href="https://youtu.be/jVB7Hmu9PM0" target="_blank">
-        <img src="{% static '_juegos/img/001.jpg'%}" alt="Galeria imagen" />
-        <h3 class="text-center text-capitalize font-italic">Mario vs Sonic</h3>
-      </a>
+
+<div class="text-center pt-5">
+  <h1>Juegos</h1>
+  <p>Descarga ahora</p>
+</div>
+
+<div class='principal-body'>
+  <section id="galeria" class="container-fluid">
+    <div class="row">
+      {% for j in game %}
+      <div
+      class="card col-12 col-sm-6 col-md-4 col-lg-2 mb-4 "
+      style="margin: 0px 25px; width: 400px"
+      >
+        <div class="card-body " >
+          <a href="{{ j.link }}">
+          <img src="{{ j.imagen.url }}" 
+          alt="Galeria imagen" 
+          class="card-img-top"
+          alt="..."/
+           style='height: 216.6px; cursor:pointer;'
+           ></a>
+          <h3 class="text-center text-capitalize font-italic">
+          {{ j.titulo | upper }}
+          </h3>
+          <a href="{{n.link}}" target="_blank" class="btn btn-info ">
+            Lo quiero!
+          </a> &nbsp;
+          <a href="{% url 'juegos_modifica' j.id %}"  class="btn btn-primary ">
+            Modificar
+          </a>
+          <a href="{% url 'juegos_elimina' j.id %}"  class="btn btn-danger ">
+            Eliminar
+          </a>
+        </div>
+
+
+      </div>
+      {% endfor %}
     </div>
-    <div class="col-sm-12 col-md-6 col-lg-4">
-      <a href="https://youtu.be/BIFM5e4OFfI" target="_blank">
-        <img src="{% static '_juegos/img/002.jpg'%}" alt="Galeria imagen" />
-        <h3 class="text-center text-capitalize font-italic">Fornite</h3>
-      </a>
-    </div>
-    <div class="col-sm-12 col-md-6 col-lg-4">
-      <a href="https://youtu.be/QkkoHAzjnUs" target="_blank">
-        <img src="{% static '_juegos/img/003.jpg'%}" alt="Galeria imagen" />
-        <h3 class="text-center text-capitalize font-italic">GTA V</h3>
-      </a>
-    </div>
-    <div class="col-sm-12 col-md-6 col-lg-4">
-      <a href="https://youtu.be/0zzokQ7zpDM" target="_blank">
-        <img src="{% static '_juegos/img/004.jpg'%}" alt="Galeria imagen" />
-        <h3 class="text-center text-capitalize font-italic">
-          League of Legends
-        </h3>
-      </a>
-    </div>
-    <div class="col-sm-12 col-md-6 col-lg-4">
-      <a href="https://youtu.be/vdrn4ouZRvQ" target="_blank">
-        <img src="{% static '_juegos/img/005.jpg'%}" alt="Galeria imagen" />
-        <h3 class="text-center text-capitalize font-italic">
-          Programa de Java 1
-        </h3>
-      </a>
-    </div>
-    <div class="col-sm-12 col-md-6 col-lg-4">
-      <a href="https://youtu.be/TAlKhARUcoY" target="_blank">
-        <img src="{% static '_juegos/img/006.jpg'%}" alt="Galeria imagen" />
-        <h3 class="text-center text-capitalize font-italic">Genshin Impact</h3>
-      </a>
-    </div>
-  </div>
-</section>
+  </section>
+</div>
 {% endblock %}

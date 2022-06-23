@@ -1,12 +1,14 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
+from .forms import FormAgregarJuegos
+from .models import Juegos
 
 # Create your views here.
 
 
 def juegos(request):
     juegos = Juegos.objects.all()
-    data = {'news': juegos}
-    return render(request, '_juegos/juegos.html', data)
+    data = {'game': juegos}
+    return render(request, '_juegos/juego.html', data)
 
 
 def agregar_juegos(request):
@@ -20,6 +22,7 @@ def agregar_juegos(request):
         if formulario.is_valid():
             formulario.save()
             data['mensaje'] = 'JUEGO AGREGADO CON EXITO'
+            # todo cambiar
             return redirect('/')
         else:
             data['form'] = formulario

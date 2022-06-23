@@ -17,24 +17,24 @@
       >
       
         <div class="card-body " >
-          
+         <a href="{{n.link}}"> 
             <img
           src="{{ n.imagen.url }}"
           class="card-img-top"
           alt="..."
-          style='height: 216.6px;'
-        />
+          style='height: 216.6px; '
+        /></a>
           <h5 class="card-title">{{n.titulo | upper}}</h5>
           <p class="card-text" >
             {{n.cuerpo | capfirst}}
           </p>
-          <a href="{{n.link}}" target="_blank" class="btn btn-info ">
+          <a href="{{ n.link }}" target="_blank" class="btn btn-info ">
             + Info
           </a> &nbsp;
-          <a href="{% url 'noticias_modifica' n.id %}" target="_blank" class="btn btn-primary ">
+          <a href="{% url 'noticias_modifica' n.id %}"  class="btn btn-primary ">
             Modificar
           </a>
-          <a href="{% url 'noticias_elimina' n.id %}" target="_blank" class="btn btn-danger ">
+          <a href="{% url 'noticias_elimina' n.id %}"  class="btn btn-danger ">
             Eliminar
           </a>
         </div>
