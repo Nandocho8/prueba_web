@@ -1,0 +1,53 @@
+{% extends "_base/base.html" %} {% load static %} {% block content %}
+
+<!-- galeria-->
+<title>Galeria juegos</title>
+<section id="galeria" class="container">
+  <div class="text-center pt-5">
+    <h1>Galería</h1>
+    <p>Nuevos juegos</p>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-4">
+      <a href="https://youtu.be/jVB7Hmu9PM0" target="_blank">
+        <img src="{% static '_juegos/img/001.jpg'%}" alt="Galeria imagen" />
+        <h3 class="text-center text-capitalize font-italic">Mario vs Sonic</h3>
+      </a>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-4">
+      <a href="https://youtu.be/BIFM5e4OFfI" target="_blank">
+        <img src="{% static '_juegos/img/002.jpg'%}" alt="Galeria imagen" />
+        <h3 class="text-center text-capitalize font-italic">Fornite</h3>
+      </a>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-4">
+      <a href="https://youtu.be/QkkoHAzjnUs" target="_blank">
+        <img src="{% static '_juegos/img/003.jpg'%}" alt="Galeria imagen" />
+        <h3 class="text-center text-capitalize font-italic">GTA V</h3>
+      </a>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-4">
+      <a href="https://youtu.be/0zzokQ7zpDM" target="_blank">
+        <img src="{% static '_juegos/img/004.jpg'%}" alt="Galeria imagen" />
+        <h3 class="text-center text-capitalize font-italic">
+          League of Legends
+        </h3>
+      </a>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-4">
+      <a href="https://youtu.be/vdrn4ouZRvQ" target="_blank">
+        <img src="{% static '_juegos/img/005.jpg'%}" alt="Galeria imagen" />
+        <h3 class="text-center text-capitalize font-italic">
+          Programa de Java 1
+        </h3>
+      </a>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-4">
+      <a href="https://youtu.be/TAlKhARUcoY" target="_blank">
+        <img src="{% static '_juegos/img/006.jpg'%}" alt="Galeria imagen" />
+        <h3 class="text-center text-capitalize font-italic">Genshin Impact</h3>
+      </a>
+    </div>
+  </div>
+</section>
+{% endblock %}
