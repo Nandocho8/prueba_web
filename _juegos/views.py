@@ -20,7 +20,7 @@ def juegos(request):
         raise Http404
 
     data = {'entity': juegos,
-            'paginator': paginator
+            'paginator': paginator,
             }
     return render(request, '_juegos/juego.html', data)
 
