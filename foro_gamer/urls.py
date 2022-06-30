@@ -22,11 +22,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('_index.urls')),
     path('noticias/', include('_noticias.urls')),
-    path('registro', include('_registro.urls')),
-    path('c', include('_exclusivo.urls')),
     path('juegos/', include('_juegos.urls')),
-    path('pokedex', include('_pokedex.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
+    path('api/', include('rest_juegos.urls')),
+    path('api/', include('rest_noticias.urls')),
 ]
 
 

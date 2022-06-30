@@ -1,4 +1,4 @@
-from .models import Juegos
+from _juegos.models import Juegos
 from rest_framework import serializers
 
 

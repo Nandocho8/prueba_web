@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     '_noticias',
     '_juegos',
     'rest_framework',
+    'rest_juegos',
+    'rest_noticias',
 
 ]
 
