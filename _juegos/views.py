@@ -2,13 +2,25 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import FormAgregarJuegos
 from .models import Juegos
 from django.contrib import messages
-
+from django.core.paginator import Paginator
+from django.http import Http404
 # Create your views here.
 
 
 def juegos(request):
     juegos = Juegos.objects.all()
-    data = {'game': juegos}
+    page = request.GET.get('page', 1)
+
+    try:
+        # ? ACA ESTA LA INSTANCIA
+        paginator = Paginator(juegos, 8)
+        juegos = paginator.page(page)
+    except:
+        raise Http404
+
+    data = {'entity': juegos,
+            'paginator': paginator
+            }
     return render(request, '_juegos/juego.html', data)
 
 

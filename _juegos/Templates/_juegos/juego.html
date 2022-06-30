@@ -47,7 +47,7 @@
 <div class='principal-body'>
   <section id="galeria" class="container-fluid">
     <div class="row">
-      {% for j in game %}
+      {% for j in entity %}
       <div
       class="card col-12 col-sm-6 col-md-4 col-lg-2 mb-4 "
       style="margin: 0px 25px; width: 400px"
@@ -83,6 +83,9 @@
     </div>
 
   </section>
+</div>
+<div>
+  {% include '_base/paginador.html' %}
 </div>
 {% endblock %}
 
