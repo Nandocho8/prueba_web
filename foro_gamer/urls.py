@@ -25,8 +25,8 @@ urlpatterns = [
     path('registro', include('_registro.urls')),
     path('c', include('_exclusivo.urls')),
     path('juegos/', include('_juegos.urls')),
-    path('aa', include('_login.urls')),
     path('pokedex', include('_pokedex.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
 
 

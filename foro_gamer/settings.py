@@ -27,6 +27,9 @@ SECRET_KEY = 'django-insecure-kesovzsb)1dfpao$&*1ip-hk5cu5r*f0f@5gc7twz$2xu_%kc6
 DEBUG = True
 
 ALLOWED_HOSTS = []
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
 
