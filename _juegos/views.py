@@ -4,7 +4,14 @@ from .models import Juegos
 from django.contrib import messages
 from django.core.paginator import Paginator
 from django.http import Http404
+from rest_framework import viewsets
+from .serializers import JuegosSerializer
 # Create your views here.
+
+
+class JuegosViewset(viewsets.ModelViewSet):
+    queryset = Juegos.objects.all()
+    serializer_class = JuegosSerializer
 
 
 def juegos(request):
