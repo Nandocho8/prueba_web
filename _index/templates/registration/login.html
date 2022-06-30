@@ -1,29 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+        {% load static %}
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '_index/css/login.css' %}">
     <title>Document</title>
+
 </head>
+
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-md-6 offset-md-3">
-                <div class="card">
-                    <div class="card-body">
-                        <h2>LA cagueeee</h2>
-                        <hr>
-                        <form action="" method="post">
-                            {% csrf_token %}
-                            
-                            {{ form }}
-                            <input type="submit" value="la cague">
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+<h1>FILL THE FORM<br>TO SEE ANIMATIONS</h1>
+<div class="container">
+  <div class="done">
+    Gotcha! 
+  </div>
+  <div class="red">
+    <div class="circle">
+      <div class="squareC2"></div>
     </div>
+  </div>
+  <div class="pokemon">
+    <div class="top">
+      <div class="middle"></div>
+    </div>
+    <div class="square square1"></div>
+    <div class="square square2"></div>
+    <div class="square square3"></div>
+    <div class="eye eye-left">
+      <div class="fix2 f"></div>
+      <div class="pupil"></div>
+    </div>
+    <div class="sleep-eye sleep-eye-left"></div>
+    <div class="sleep-eye sleep-eye-right"></div>
+    <div class="eye eye-right">
+      <div class="fix f"></div>
+      <div class="pupil2"></div>
+    </div>
+    <div class="nose"></div>
+    <div class="mouth">
+      <div class="teeth"></div>
+      <div class="tongue"></div>
+    </div>
+  </div>
+  <form action="" method="post">
+    {% csrf_token %}
+  <p>Usuario</p>
+  <div>
+  {{ form.username }}</div>
+  &nbsp;
+  <p class='pass-text'>Contraseña</p>
+ 
+  <p>{{ form.password}}</p>
+    <button type="submit" class= 'button' style='width:150px'>Ingresar</button>
+  </form>
+  
+
+  
+</div>
+<div class="leafs">
+  <div class="leaf leaf1"></div>
+  <div class="leaf leaf2"></div>
+  <div class="leaf leaf3"></div>
+  
+  <div class="leaf leaf4"></div>
+  <div class="leaf leaf5"></div>
+  <div class="leaf leaf6"></div>
+</div>
+
+
 </body>
 </html>
