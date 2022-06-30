@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import FormAgregarJuegos
 from .models import Juegos
+from django.contrib import messages
 
 # Create your views here.
 
@@ -21,9 +22,9 @@ def agregar_juegos(request):
         formulario = FormAgregarJuegos(data=request.POST, files=request.FILES)
         if formulario.is_valid():
             formulario.save()
-            data['mensaje'] = 'JUEGO AGREGADO CON EXITO'
+            messages.success(request, "Agregado con exito")
             # todo cambiar
-            return redirect('/')
+            return redirect(to='/juegos')
         else:
             data['form'] = formulario
             return render(request, '_juegos/agregar_juegos.html', data)
@@ -44,8 +45,8 @@ def modificar_juegos(request, id):
             data=request.POST, files=request.FILES, instance=juegos)
         if formulario.is_valid():
             formulario.save()
-            data['mensaje'] = 'jUEGO MODIFICADO CON EXITO'
-            return redirect(to='juegos')
+            messages.success(request, "Juego modificado")
+            return redirect(to='juegos', )
         else:
             data['form'] = formulario
             return render(request, '_juegos/editar_juegos.html', data)
@@ -57,4 +58,5 @@ def modificar_juegos(request, id):
 def eliminar_juegos(request, id):
     juegos = get_object_or_404(Juegos, id=id)
     juegos.delete()
+    messages.success(request, "Juego Eliminado")
     return redirect(to='juegos')

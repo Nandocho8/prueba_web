@@ -1,7 +1,44 @@
-{% extends "_base/base.html" %} {% load static %} {% block content %}
+{% extends "_base/base.html" %} {% load static %} 
 
 <!-- galeria-->
+    {% block js %}
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
 
+
+
+    function eliminaJuego(id){
+        Swal.fire({
+      "title": "¿Seguro que desea eliminar?",
+      "text": "El juego una vez borrado no podra recuperarse",
+      "icon" : "question",
+      "showCancelButton" : true,
+      "cancelButtonText":"No, conservar",
+      "confirmButtonText":"Si, eliminar",
+      "confirmButtonColor":"#dc3545"
+    })
+        .then(function(result){
+      if(result.isConfirmed){
+        window.location.href = 'eliminar_juegos/'+id+'/'
+      }
+    })
+
+
+  }
+</script>
+{% if messages %}
+{% for m in messages %}
+<script>
+  Swal.fire({
+    'title' : "Realizado con exito",
+    'text' : "{{m}}",
+    "icon" : "success"
+  })
+</script>
+{% endfor %}
+{% endif %}
+{% endblock %}
+{% block content %}
 <div class="text-center pt-5">
   <h1>Juegos</h1>
   <p>Descarga ahora</p>
@@ -32,18 +69,21 @@
           <a href="{{j.link}}" target="_blank" class="btn btn-info ">
             Lo quiero!
           </a> &nbsp;
-          <a href="{% url 'juegos_modifica' j.id %}"  class="btn btn-primary ">
+          <a href=" {% url 'juegos_modifica' j.id %}"   class="btn btn-primary ">
             Modificar
           </a>
-          <a href="{% url 'juegos_elimina' j.id %}"  class="btn btn-danger ">
+          <a href="#" onclick='eliminaJuego({{ j.id }})' class="btn btn-danger ">
             Eliminar
           </a>
         </div>
-
+{% comment %} {% url 'juegos_elimina' j.id %} {% endcomment %}
 
       </div>
       {% endfor %}
     </div>
+
   </section>
 </div>
 {% endblock %}
+
+
