@@ -10,7 +10,7 @@
 
     <div class="row" >
       <!--separador-->
-      {% for n in news %}
+      {% for n in entity %}
       <div
         class="card col-12 col-sm-6 col-md-4 col-lg-2 mb-4 "
         style="margin: 0px 25px; width: 400px"
@@ -31,21 +31,23 @@
           <a href="{{ n.link }}" target="_blank" class="btn btn-info ">
             + Info
           </a> &nbsp;
+          {% if user.is_authenticated %}
           <a href="{% url 'noticias_modifica' n.id %}"  class="btn btn-primary ">
             Modificar
           </a>
           <a href="{% url 'noticias_elimina' n.id %}"  class="btn btn-danger ">
             Eliminar
           </a>
+          {% endif %}
         </div>
       </div>
 {% endfor %}
      
     </div>
+
   </section>
-  <script
-    src="https://kit.fontawesome.com/54884d8b08.js"
-    crossorigin="anonymous"
-  ></script>
-</div class='principal-body'>
+</div>
+<div>
+    {% include '_base/paginador.html' %}
+</div>
 {% endblock %}

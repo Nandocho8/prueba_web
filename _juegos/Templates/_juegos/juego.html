@@ -69,12 +69,14 @@
           <a href="{{j.link}}" target="_blank" class="btn btn-info ">
             Lo quiero!
           </a> &nbsp;
+         {% if user.is_authenticated %}
           <a href=" {% url 'juegos_modifica' j.id %}"   class="btn btn-primary ">
             Modificar
           </a>
           <a href="#" onclick='eliminaJuego({{ j.id }})' class="btn btn-danger ">
             Eliminar
           </a>
+          {% endif %}
         </div>
 {% comment %} {% url 'juegos_elimina' j.id %} {% endcomment %}
 
