@@ -6,6 +6,9 @@ from rest_framework.parsers import JSONParser
 from django.views.decorators.csrf import csrf_exempt
 from .models import Pokemon
 from .serializers import PokemonSerializer
+import requests
+import json
+import random
 
 
 @csrf_exempt
@@ -45,3 +48,8 @@ def detalle_pokemon(request, id):
     elif request.method == 'DELETE':
         pokemon.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+def apiDex(request):
+
+    return render(request, 'rest_pokemon/api.html')

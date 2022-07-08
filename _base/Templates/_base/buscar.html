@@ -1,0 +1,15 @@
+{% extends "_base/base.html" %} {% load static %} {% block content %}
+
+
+{% for n in data %}
+<div style='border:solid #fff'>
+<ul>
+    <li>{{n.titulo}}</li>
+    <li>{{n.cuerpo}}</li>
+    <li></li>
+</ul>
+    </div>
+{% endfor %}
+
+
+{% endblock %}

@@ -1,0 +1,87 @@
+{% extends "_base/base.html" %}  
+{% load static %}
+{% block content %}
+<script>
+function solonum(e){
+    key = e.keyCode || e.which;
+    teclado=String.fromCharCode(key);
+    numeros = "0123456789";
+    especial = "8-37-38-46";
+    tec_especial = false;
+    var num = "";
+    if 
+
+    for(var i in especial){
+        if(key==especial[i]){
+            tec_especial = true;
+        }
+    }
+    if(numeros.indexOf(teclado)==-1 && !tec_especial){
+        return false;
+    }
+    console.log(num)
+}
+
+
+</script>
+
+<div style="background-image: url({% static '/rest_pokemon/img/pokefondo.png' %}); background-size:800px 600px; width: 100%; height: 800px;">
+    <img src="{% static '/rest_pokemon/img/pokemon.png'%}" class="logo-poke" alt="" >
+    <div class="pokemon" id='poke-fondo'>
+            <div class="img-container">
+                <img src="{% static '/rest_pokemon/img/pokedex.png'%}" id="img-poke" class="pokemon" alt="">
+            </div>
+            <div class="info">
+                <span class="number" id="number">Quien es ese pokemon</span>
+                <h3 class="name" id="name"></h3>
+                <small class="type" id="tipos"></small><br>
+                <small class="type" id="peso"> <span></span></small><br>
+                <small class="type" id="altura"><span></span></small><br>
+                <input type="text" id="caja" placeholder="Ingresa un número del 1 al 898" onkeypress="return solonum(event)" onpaste='return false'>
+        <!--botón para buscar pokémon-->
+        <button class="text-white btn bg-danger" id="button">Buscar</button>
+            </div>
+        </div>
+</div>
+
+ <!--Script de Api-->
+
+    <script>
+        let buton=document.getElementById('button')
+
+        buton.addEventListener('click',()=>{
+            let caja=document.getElementById('caja').value
+            let img=document.getElementById('img-poke')
+            let name=document.getElementById('name')
+            let number=document.getElementById('number')
+            let tipos=document.getElementById('tipos')
+            let peso=document.getElementById('peso')
+            let altura=document.getElementById('altura')
+            let xhttp=new XMLHttpRequest()
+            xhttp.open("GET",`https://pokeapi.co/api/v2/pokemon/${caja}`)
+            xhttp.send()
+
+            xhttp.onreadystatechange=function () {
+                if(this.readyState==4 && this.status==200)
+                {
+                let datoPokemon=JSON.parse( this.responseText)
+                console.log(datoPokemon)
+                img.setAttribute("src",datoPokemon.sprites.front_default)
+                name.textContent=datoPokemon.name.toUpperCase();
+                altura.textContent='Altura: '+(datoPokemon.height/10)+' m'
+                peso.textContent='Peso: ' + (datoPokemon.weight)/10 + ' Kg'
+                tipos.textContent=datoPokemon.types[0].type.name.toUpperCase();
+                number.textContent = "#" + caja
+
+                }
+            }
+                     
+
+            }
+        );
+
+
+            </script>
+
+
+{% endblock%}

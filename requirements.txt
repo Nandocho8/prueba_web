@@ -3,3 +3,4 @@ pillow
 cx_oracle
 django-crispy-forms
 django-rest-framework
+requests

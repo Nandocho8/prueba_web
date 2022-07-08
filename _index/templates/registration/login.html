@@ -53,7 +53,9 @@
   <p class='pass-text'>Contraseña</p>
  
   <p>{{ form.password}}</p>
-    <button type="submit" class= 'button' style='width:150px'>Ingresar</button>
+    <div>
+      <button type="submit" class= 'button' style='width:140px; margin: 0 10px 0 0' >Ingresar</button><button type="button" class= 'button' style='width:150px' href="{% url 'index' %}">Volver</button>
+    </div>
   </form>
   
 
